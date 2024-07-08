@@ -1,6 +1,10 @@
 import { API_KEY } from './config.js';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+function scrollToBottom() {
+    const responseaiElement = document.getElementById('responseai');
+    responseaiElement.scrollTop = responseaiElement.scrollHeight;
+  }
 
 // Access your API key (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -28,22 +32,20 @@ const chat = model.startChat({
 
 async function sendPrompt() {
 const prompt = document.getElementById('promptInput').value; // Get the entered prompt
+
 if (!prompt) return; // Do nothing if the prompt is empty
 
 try {
-  const chat = model.startChat({
-    history: [],
-    generationConfig: {},
-  });
-
   const result = await chat.sendMessageStream(prompt);
   let text = '';
   const responseaiElement = document.getElementById('responseai');
+  responseaiElement.innerText += 'AI:\n'
   for await (const chunk of result.stream) {
     const chunkText = await chunk.text();
     console.log(chunkText);
     text += chunkText;
-    responseaiElement.innerText += chunkText;
+    responseaiElement.innerText += chunkText; // Append AI's response
+    scrollToBottom();
   }
 } catch (error) {
   console.error("Error sending message to Google Generative AI:", error);
@@ -52,8 +54,18 @@ try {
 
 // Add event listener to the submit button
 document.getElementById('submitPrompt').addEventListener('click', sendPrompt);
-
+document.getElementById('promptInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent the default action to stop form submission or any other unwanted behavior
+      sendPrompt(); // Call the sendPrompt function
+      document.getElementById('responseai').innerText += `You:\n ${document.getElementById('promptInput').value}\n`;
+      this.value = ''; // Clear the textbox after submitting
+       // Append user's message
+    }
+  });
+  
 
 }
+
 
 run();

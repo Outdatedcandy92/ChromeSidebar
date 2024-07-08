@@ -1,12 +1,13 @@
 <html>
   <head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://esm.run 'unsafe-inline'; object-src 'self'">
     <title>Gemini</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="importmap">
+    <link nonce="abcd1234" rel="stylesheet" href="style.css">
+    <script type="importmap" nonce="UNIQUE_NONCE_VALUE">
       {
         "imports": {
           "@google/generative-ai": "https://esm.run/@google/generative-ai"
-        }
+        }      
       }
     </script>
     <script type="module" src="script.js"></script>
@@ -14,10 +15,12 @@
   <body>
 
   
-    <h1 markdown=1>*Google Gemini*</h1>
-    <p id = "responseai"></p>
-    <input type="text" id="promptInput" placeholder="Enter your prompt here">
-    <!-- Button to submit the prompt -->
-    <button id="submitPrompt">Submit</button>
+    <h1>*Google Gemini*</h1>
+    <p id="responseai"></p>
+    <!-- Div to contain input and button, positioned at the bottom -->
+    <div class="input-container">
+      <input type="text" id="promptInput" placeholder="Enter your prompt here">
+      <button id="submitPrompt">Submit</button>
+    </div>
   </body>
 </html>
