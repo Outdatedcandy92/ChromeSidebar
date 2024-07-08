@@ -1,5 +1,5 @@
 import { API_KEY } from './config.js';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "./gemini.js";
 
 function scrollToBottom() {
     const responseaiElement = document.getElementById('responseai');
@@ -31,8 +31,8 @@ const chat = model.startChat({
 
 
 async function sendPrompt() {
-const prompt = document.getElementById('promptInput').value; // Get the entered prompt
-
+ 
+  const prompt = document.getElementById('promptInput').value; // Get the entered prompt
 if (!prompt) return; // Do nothing if the prompt is empty
 
 try {
@@ -53,14 +53,12 @@ try {
 }
 
 // Add event listener to the submit button
-document.getElementById('submitPrompt').addEventListener('click', sendPrompt);
 document.getElementById('promptInput').addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent the default action to stop form submission or any other unwanted behavior
       sendPrompt(); // Call the sendPrompt function
       document.getElementById('responseai').innerText += `You:\n ${document.getElementById('promptInput').value}\n`;
-      this.value = ''; // Clear the textbox after submitting
-       // Append user's message
+      document.getElementById('promptInput').value = ''; // Clear the input field using direct reference
     }
   });
   

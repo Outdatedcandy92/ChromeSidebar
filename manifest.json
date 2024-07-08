@@ -6,6 +6,9 @@
   "side_panel": {
     "default_path": "index.html"
   },
+ "content_security_policy": {
+  "script-src": "'self' https://esm.run/"
+  },
   "permissions": ["sidePanel"],
   "action": {
       "default_title": "click to open"

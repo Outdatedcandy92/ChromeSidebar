@@ -7,29 +7,19 @@
     nonce="xnhSdxbxh3Pkp7KN"
     http-equiv="Content-Security-Policy"
     content="default-src 'self'; 
-    script-src 'self' 'unsafe-inline' 'nonce-fSwlvRankrNS85My' https://esm.run https://cdn.jsdelivr.net;
     style-src 'self' 'unsafe-inline' 'nonce-Wcdd7H4mif1RsBKU' style.css;
     connect-src 'self' https://generativelanguage.googleapis.com;"
     />
-
-    <script type="importmap" nonce="fSwlvRankrNS85My"> 
-      {
-        "imports": {
-          "@google/generative-ai": "https://esm.run/@google/generative-ai"
-        }      
-      }  
-    </script>
     <script type="module" src="script.js"></script>
     <link rel="stylesheet" href="style.css" nonce="Wcdd7H4mif1RsBKU">
   </head>
   <body>
 
-    <h1>*Google Gemini*</h1>
+    <h1>Google Gemini</h1>
     <p id="responseai"></p>
     <!-- Div to contain input and button, positioned at the bottom -->
     <div class="input-container">
       <input type="text" id="promptInput" placeholder="Enter your prompt here">
-      <button id="submitPrompt">Submit</button>
     </div>
   </body>
 </html>
