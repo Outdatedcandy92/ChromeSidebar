@@ -4,7 +4,7 @@
     "manifest_version": 3,
     "description": "Provides definitions in the side panel.",
     "side_panel": {
-      "default_path": "sidepanel.html"
+      "default_path": "index.html"
     },
     "permissions": ["sidePanel"],
     "action": {
