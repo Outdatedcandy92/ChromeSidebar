@@ -1,13 +1,13 @@
 {
-    "name": "Dictionary side panel",
-    "version": "0.1",
-    "manifest_version": 3,
-    "description": "Provides definitions in the side panel.",
-    "side_panel": {
-      "default_path": "index.html"
-    },
-    "permissions": ["sidePanel"],
-    "action": {
-        "default_title": "click to open"
-    }
+  "name": "gemini",
+  "version": "0.1",
+  "manifest_version": 3,
+  "description": "Provides definitions in the side panel.",
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "permissions": ["sidePanel"],
+  "action": {
+      "default_title": "click to open"
   }
+}
