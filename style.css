@@ -5,6 +5,7 @@ body, html {
     background-color: #131314;
     color: #dbdbdf;
     font-family: 'roboto', sans-serif;
+    overflow: hidden;
 
   }
   
@@ -12,23 +13,27 @@ body, html {
 body {
     display: flex;
     flex-direction: column;
+    padding-bottom: 10vh;
+    padding-top: 5vh; /* Adjust this value to match the height of your nav bar */
+
   }
 .input-container {
   width: 95%; /* Full width */
   position: fixed; /* Fixed position */
   bottom: 0; /* Stick to the bottom */
   left: 50%; /* Center horizontally */
+  background-color: #1e1f20;
   transform: translateX(-50%); /* Adjust for the width to truly center */
   border-radius: 10px;
   height: 5vh;
   margin-bottom: 2vh;
   }
 #responseai {
-    max-height: 90vh; /* Adjust based on your layout */
+    max-height: 83vh; /* Adjust based on your layout */
     overflow-y: auto; /* Enables vertical scrolling */
-    padding: 10px; /* Optional: for spacing */
-    margin-bottom: 50px; /* Adjust the bottom margin to not be hidden by the input-container */
+    padding: 10px; /* Optional: for spacing */ /* Adjust the bottom margin to not be hidden by the input-container */
     line-height: 2;
+
   }
 #responseai::-webkit-scrollbar {
     display: none;
@@ -56,6 +61,27 @@ body {
   text-align: right;
   margin-left: 5vw;
   border: none;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  align-items: center;
+}
+
+nav h1, nav a {
+  margin: 0px 20px; /* Removes default margins */
+  padding: 0;
+}
+
+/* Optional: Style the link to look more like a navigation item */
+nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #007bff; /* Example link color */
 }
 
 
