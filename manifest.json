@@ -9,10 +9,14 @@
  "content_security_policy": {
   "script-src": "'self' https://esm.run/"
   },
-  "permissions": ["sidePanel"],
+  "permissions": ["sidePanel", "tabs", "storage"],
   "action": {
       "default_title": "click to open"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
+
   "icons": {
     "16": "./images/16.png",
     "48": "./images/48.png",

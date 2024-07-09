@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent the default form submission
 
-        const name = document.getElementById('name').value;
-        const APIKEY = document.getElementById('APIKEY').value;
-        const prompt = document.getElementById('prompt').value;
-        const modelType = document.getElementById('model-type').value;
+        // Retrieve the current config from Local Storage
+        const currentConfig = JSON.parse(localStorage.getItem('config')) || {};
 
-        // Store the settings in Local Storage
-        localStorage.setItem('config', JSON.stringify({ name, APIKEY, prompt, modelType }));
+        // Update the config with new values if they have been provided
+        const updatedConfig = {
+            ...currentConfig,
+            ...(document.getElementById('name').value && {name: document.getElementById('name').value}),
+            ...(document.getElementById('APIKEY').value && {APIKEY: document.getElementById('APIKEY').value}),
+            ...(document.getElementById('prompt').value && {prompt: document.getElementById('prompt').value}),
+            ...(document.getElementById('model-type').value && {modelType: document.getElementById('model-type').value})
+        };
+
+        // Store the updated settings in Local Storage
+        localStorage.setItem('config', JSON.stringify(updatedConfig));
 
         alert('Settings saved!');
 
