@@ -1,8 +1,8 @@
 {
-  "name": "gemini",
+  "name": "Gemini",
   "version": "0.1",
   "manifest_version": 3,
-  "description": "Provides definitions in the side panel.",
+  "description": "Provides a sidepanel inside which you can use Google's Gemini",
   "side_panel": {
     "default_path": "index.html"
   },
@@ -12,5 +12,10 @@
   "permissions": ["sidePanel"],
   "action": {
       "default_title": "click to open"
+  },
+  "icons": {
+    "16": "./images/16.png",
+    "48": "./images/48.png",
+    "128": "./images/128.png"
   }
 }

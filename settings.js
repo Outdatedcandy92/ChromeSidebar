@@ -15,5 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Clear the form
         form.reset();
+
+        window.location.href = 'index.html';
     });
 });

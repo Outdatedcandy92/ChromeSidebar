@@ -46,6 +46,7 @@ if (config) {
 
   if (modelType) {
     console.log(modelType);
+    document.getElementById('modname').innerText = modelType;
     modelTypeValue = modelType;
   } else {
     console.log('Model type is empty.');
@@ -53,6 +54,7 @@ if (config) {
   }
 } else {
   console.log('No config found in localStorage.');
+  window.location.href = 'settings.html';
 }
 
 
@@ -85,16 +87,21 @@ const chat = model.startChat({
 
 
 
+
 async function sendPrompt() {
  
   const prompt = document.getElementById('promptInput').value; // Get the entered prompt
 if (!prompt) return; // Do nothing if the prompt is empty
 
 try {
+  chat._history.push({
+    role: "user",
+    parts: [{ text: prompt }],
+  });
   const result = await chat.sendMessageStream(prompt);
   let text = '';
   const responseaiElement = document.getElementById('responseai');
-  responseaiElement.innerText += '🤖:\n'
+  responseaiElement.innerText += '✨:\n'
   for await (const chunk of result.stream) {
     const chunkText = await chunk.text();
     console.log(chunkText);
@@ -102,6 +109,11 @@ try {
     responseaiElement.innerText += chunkText; // Append AI's response
     scrollToBottom();
   }
+  chat._history.push({
+    role: "model",
+    parts: [{ text: text }],
+  });
+  console.log(chat._history)
 } catch (error) {
   console.error("Error sending message to Google Generative AI:", error);
 }
@@ -112,7 +124,7 @@ document.getElementById('promptInput').addEventListener('keypress', function(eve
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent the default action to stop form submission or any other unwanted behavior
       sendPrompt(); // Call the sendPrompt function
-      document.getElementById('responseai').innerText += `${userName}\n ${document.getElementById('promptInput').value}\n`;
+      document.getElementById('responseai').innerText += `${userName}:\n ${document.getElementById('promptInput').value}\n`;
       document.getElementById('promptInput').value = ''; // Clear the input field using direct reference
     }
   });
