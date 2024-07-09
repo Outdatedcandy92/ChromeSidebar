@@ -39,7 +39,7 @@ try {
   const result = await chat.sendMessageStream(prompt);
   let text = '';
   const responseaiElement = document.getElementById('responseai');
-  responseaiElement.innerText += 'AI:\n'
+  responseaiElement.innerText += '🤖:\n'
   for await (const chunk of result.stream) {
     const chunkText = await chunk.text();
     console.log(chunkText);

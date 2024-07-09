@@ -4,7 +4,7 @@ body, html {
     margin: 0;
     background-color: #131314;
     color: #dbdbdf;
-    font-family: "Open Sans", sans-serif;
+    font-family: 'roboto', sans-serif;
 
   }
   
@@ -28,6 +28,7 @@ body {
     overflow-y: auto; /* Enables vertical scrolling */
     padding: 10px; /* Optional: for spacing */
     margin-bottom: 50px; /* Adjust the bottom margin to not be hidden by the input-container */
+    line-height: 2;
   }
 #responseai::-webkit-scrollbar {
     display: none;
@@ -46,3 +47,85 @@ body {
   outline: none; /* Removes the default focus outline */
 
 }
+#dropdown{
+  width: 20vw;
+  background-color: #13131400;
+  color: #dbdbdf;
+  font-size: 26px;
+  outline: none;
+  text-align: right;
+  margin-left: 5vw;
+  border: none;
+}
+
+
+
+
+
+
+/* Settings page */
+
+.settingsbod{
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+  margin: 0;
+}
+
+#settingsForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 50vw;
+    align-items: start; /* Align items to the start of the form */
+  }
+
+  #settingsForm input {
+    background-color: #1e1f20;
+    color: #dbdbdf;
+    border: none;
+    height: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px; 
+    padding-left: 20px;
+    font-size: 14px;
+  }
+
+  #settingsForm select {
+    background-color: #1e1f20;
+    color: #dbdbdf;
+    border: none;
+    height: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px; 
+    padding-left: 15px;
+    font-size: 14px;
+  }
+
+  #settingsForm button {
+    background-color: #1e1f20;
+    color: #dbdbdf;
+    border: none;
+    height: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    text-align: center;
+    align-self: center; /* Center the button */
+  }
+
+  #prompt{
+    width: 40vw;
+    height: 20vh;
+    background-color: #1e1f20;
+    color: #dbdbdf;
+    border: none;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    resize: none;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
