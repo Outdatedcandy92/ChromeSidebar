@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Retrieve the current config from Local Storage
         const currentConfig = JSON.parse(localStorage.getItem('config')) || {};
 
+        if (localStorage.getItem('config')) {
+            console.log('Config exists.');
+            document.getElementById('subbtn').innerText = 'Update';
+        } else {
+            console.log('Config does not exist.');
+            document.getElementById('subbtn').innerText = 'Save';
+        }
+
         // Update the config with new values if they have been provided
         const updatedConfig = {
             ...currentConfig,

@@ -35,7 +35,7 @@ if (config) {
   } else {
     console.log('APIKEY is empty.');
     alert('API Key is empty. Please set it in settings.');
-    window.location.href = 'settings.html';
+   // window.location.href = 'settings.html';
 
   }
   if (defaultPrompt) {
